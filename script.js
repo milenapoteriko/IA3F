@@ -13,32 +13,33 @@ const perguntas = [ //serve para abrir lista de perguntas
     {
         enunciado: "A IA na saude é usada para",
         alternativas: [
-            {texto:"substituir todos os médicos ", afirmação: "afirmacão da alternativa"},
+            {texto:"Substituir todos os médicos ", afirmação: "afirmacão da alternativa"},
             {texto:"Diagnosticar doenças mais rapidamente",afirmação: "afirmacão da alternativa"}]
     },
     {
         enunciado: "Assistentes virtuais como Siri ou alexa ajudam com:",
         alternativas: [
             {texto:"Programação avançada de software",afirmação: "afirmacão da alternativa"},
-            {texto:"tarefas do dia a dia e controle de dispositivos",afirmação: "afirmacão da alternativa"}]   
+            {texto:"Tarefas do dia a dia e controle de dispositivos",afirmação: "afirmacão da alternativa"}]   
     },
     {
         enunciado: "a evolução da IA pode resultar em:",
         alternativas: [
-            {texto:"maior automação nas industrias",afirmação: "afirmacão da alternativa"},
+            {texto:"Maior automação nas industrias",afirmação: "afirmacão da alternativa"},
             {texto:"Menos tecnologia no cotidiano das pessoas",afirmação: "afirmacão da alternativa"}]
 
     },
     {
         enunciado: "O aprendizado de maquina é",
         alternativas: [
-            {texto:"uma maneira de ensinar maquinas",afirmação: "afirmacão da alternativa"},
-            {texto:"um tipo de jogo",afirmação: "afirmacão da alternativa"}]
+            {texto:"Uma maneira de ensinar maquinas",afirmação: "afirmacão da alternativa"},
+            {texto:"Um tipo de jogo",afirmação: "afirmacão da alternativa"}]
 
     }
 ]
 let posicao = 0;
 let perguntaAtual;
+let historiaFinal = "";
 
 function mostraPergunta(){
     perguntaAtual = perguntas[posicao];
@@ -48,8 +49,16 @@ function mostraPergunta(){
 function mostraAlternativas(){
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener ("click", () => respostaSelecionada(alternativa));
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacoes = opcaoSelecionada.afirmação;
+    historiaFinal = afirmacoes;
+    posicao++;
+    mostraPergunta();
+}
+
 mostraPergunta();
