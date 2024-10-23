@@ -2,12 +2,13 @@ const caixaPrincipal = document.querySelector('.caixa-principal');
 const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativas = document.querySelector('.caixa-alternativas');
 const caixaResultado = document.querySelector('.caixa-resultado');
+const textoResultado = document.querySelector('.texto-resultado');
 
 const perguntas = [ //serve para abrir lista de perguntas
     {//abre o objeto das perguntas
-        enunciado: "O que é Inteligencia Artificial?",
+        enunciado: "qual desses doces voce mais gosta?",
         alternativas: [
-            {texto:"Uma simulação da inteligencia humana",
+            {texto:"Brigadeiro",
             afirmação: "A IA é uma simulção de inteligencia humana"},
 
             {texto:"Um novo tipo de planta",
